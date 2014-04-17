@@ -1,5 +1,4 @@
 
-
 var assignLst = angular.module('assignLst', []);
 
 assignLst.controller('AssignLstCtrl', ['$scope','$http',  function ($scope, $http) {
