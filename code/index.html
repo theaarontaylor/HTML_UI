@@ -46,7 +46,8 @@
 
 <div><div class="header">
 	
-    <img src="images/Logo_png.png" class="page-logo" style="height:40px; width:50px;" alt="img">
+    <img src="images/Logo_png.png" class="page-logo" style="height:40px; width:50px; margin-top:7px;" alt="img">
+
 </div>
 
 
@@ -76,10 +77,22 @@
 				<li style="list-style-type:none" ng-repeat="course in courses | filter:query">
 					
 					<p>
-						<a href="#" class="checkbox checkbox-one choose-course" style="font-size: 20pt; margin-left: 25px; ">{{course.courseDescription}}</a> 	
+						<a href="#" class="checkbox checkbox-one choose-course" style="
+						font-size: 20pt; 
+						text-align:center; 
+						padding-left: 60px;
+						margin-left:25px;
+						background-size: 50px;
+						padding-bottom:20px;
+						background-position: 0px 0px;
+						 
+						">{{course.courseDescription}}</a> 	
 						
 												
-						<br><span style="font-size: 15px; margin-left: 57px">{{course.courseId}}</span>
+						<br><span style="
+						font-size: 15px; 
+						margin-left: 87px;
+						">{{course.courseId}}</span>
 					</p>
 				</li>
 				</ul>
