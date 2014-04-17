@@ -10,11 +10,14 @@
 /* CSS Document */
 
 
+
 /*////////////////*/
 /*Stylesheet Reset*/
 /*////////////////*/
 
 * {
+	font-family: Lato;
+	font-weight: 400;
 	appearance:normal;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -38,6 +41,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	width: 100%;
 }
 
 a:hover{
@@ -171,7 +175,7 @@ ol > li:last-child, ul > li:last-child {
 /*//////////////////////////////////////*/
 
 body{
-	font-family:'Open Sans', sans-serif;
+	font-family:'Lato','Open Sans', sans-serif;
 	color:#666;
 	font-size:12px;
 	line-height:20px;
@@ -474,7 +478,14 @@ a{
 	color:#FFFFFF;
 	padding:10px 26px;
 	display:inline-block;
-	margin-bottom:2px;
+	margin:10px;
+	width: 100%;
+	bottom: 10px;
+	position: fixed;    
+}
+
+.button-big a {
+	font-size: 60px;
 }
 
 .button-big-icon{
@@ -505,7 +516,8 @@ a{
 }
 
 
-.button-turqoise{			background-color:#16a085;	}
+.button-turqoise{			background-color:#08A5AC;
+font-size: 20px;	}
 .button-turqoise:active{	 background-color:#085b4b;	}
 
 .button-green{			   background-color:#27ae60;	}
@@ -1383,7 +1395,6 @@ table tr:hover td{
 	padding-left:50px;
 	font-size:13px;
 	color:#343434;
-	text-transform:uppercase;
 	background-image:url(../images/ui/plus.png);
 	background-repeat:no-repeat;
 	background-size:12px 12px;
@@ -1399,7 +1410,6 @@ table tr:hover td{
 	padding-left:50px;
 	font-size:13px;
 	color:#343434;
-	text-transform:uppercase;
 	background-image:url(../images/lists/plus_48.png);
 	background-repeat:no-repeat;
 	background-size:14px 14px;
