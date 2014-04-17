@@ -33,10 +33,11 @@
 <script type="text/javascript" src="scripts/custom.js"></script>
 <script type="text/javascript" src="scripts/framework.js"></script>
 <script type="text/javascript" src="scripts/framework.launcher.js"></script>
-
+<script src="angular/angular.js"></script>
+<script src="scripts/controller.js"></script>
 
 </head>
-<body>
+<body ng-app="assignLst">
 
 <div id="preloader">
 	<div id="status">
@@ -100,15 +101,15 @@
     <img class="responsive-image" src="images/misc/idc_assign_background.jpg" alt="img">
 </div>
 
-<div class="content">
+<div class="content" ng-controller="AssignLstCtrl">
     <div class="decoration"></div>
     <div class="container no-bottom">
     
     
     <div class="one-half-responsive last-column">
         <div class="container">
-            <div class="toggle-1">
-                <a href="#" class="deploy-toggle-1"><strong>Assignment 1</strong> <br> Due on Monday, April 24 at 17:30 </a>
+            <div class="toggle-1" ng-repeat="event in events">
+                <a href="#" class="deploy-toggle-1"><strong>{{event.title}}</strong> <br> Due on Monday, April 24 at 17:30 </a>
                 <div class="toggle-content">
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
