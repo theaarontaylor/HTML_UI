@@ -42,18 +42,11 @@
 
 <body>
 
-<div id="preloader">
-	<div id="status">
-    	<p class="center-text">
-			Loading the content...
-            <em>Loading depends on your connection speed!</em>
-        </p>
-    </div>
-</div>
+
 
 <div><div class="header">
 	
-    <img src="images/misc/logo.png" class="page-logo" alt="img">
+    <img src="logo.png" class="page-logo" alt="img">
 </div>
 
 
@@ -72,7 +65,7 @@
 <body ng-app = "searchAssign" ng-controller="searchController"> 
 	<div id="tfheader">
 		<form id="tfnewsearch" method="get" action="">
-		        <input placeholder="search by #" type="text" class="tftextinput" name="q" size="21" maxlength="120" ng-model="query">
+		        <input placeholder="Search by #" type="text" class="tftextinput" name="q" size="21" maxlength="120" ng-model="query">
 	
 		        <!--<input type="submit" value="search" class="tfbutton"> -->
 		</form>
@@ -80,10 +73,13 @@
 	</div>
 
 				<ul class="courses">
-				<li ng-repeat="course in courses | filter:query">
-					<span>{{course.courseId}}</span>
+				<li style="list-style-type:none" ng-repeat="course in courses | filter:query">
+					
 					<p>
-						<a href="#" class="checkbox checkbox-one choose-course" style="font-size: 14pt;">{{course.courseDescription}}</a>
+						<a href="#" class="checkbox checkbox-one choose-course" style="font-size: 20pt; margin-left: 25px; ">{{course.courseDescription}}</a> 	
+						
+												
+						<br><span style="font-size: 15px; margin-left: 60px">{{course.courseId}}</span>
 					</p>
 				</li>
 				</ul>
