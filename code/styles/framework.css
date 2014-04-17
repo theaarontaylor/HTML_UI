@@ -56,7 +56,6 @@ a:hover{
 div, a, p, img, blockquote, form, fieldset, textarea, input, label, iframe, code, pre {
 	display: block;
 	position:relative;
-	overflow:hidden;
 }
 
 p {
@@ -1062,11 +1061,11 @@ table tr:hover td{
 
 .checkbox-one{
 	background-image:url(../images/ui/checkbox1.png);
-	background-size:16px 18px;
+	background-size:25px 26px;
 	background-repeat:no-repeat;
 	padding-left:30px;
-	background-position:0px 1px;
-	margin-bottom:10px;
+	background-position:0px 10px;
+	margin-bottom:20px;
 }
 
 .checkbox-one-checked{
