@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swipe Test</title>
+	<style>
+	#touchsurface2 {
+		width: 300px;
+		height: 300px;
+		border: 1px solid orange;
+		background: lightyellow url(arrows.png) center center no-repeat;
+	}
+	
+	#touchsurface2 #inner {
+		width: 100%;
+		height: 100%;
+	}
+	</style>
+</head>
+<body>
+
+	<h1>My First Heading</h1>
+
+	<p>My first paragraph.</p>
+	
+	<script>
+	 
+	window.addEventListener('load', function(){
+	 var el = document.getElementById('touchsurface2')
+	 var inner = document.getElementById('inner')
+	 var hidetimer = null
+	 swipedetect(el, function(swipedir){
+	  if (swipedir != 'none'){
+	   clearTimeout(hidetimer)
+	   var bgimage = swipedir + 'arrow.png' // naming convention is "leftarrow.png", "rightarrow.png" etc
+	   inner.style.background = 'transparent url(' + bgimage + ') center center no-repeat'
+	   hidetimer = setTimeout(function(){ // reset background image after 1 second
+		inner.style.background = ''
+	   }, 1000)
+	  }
+	 })
+	}, false)
+
+	</script>
+	 
+	<div id="touchsurface2">
+	 <div id="inner">
+	  Swipe Me
+	 </div>
+	</div>
+
+
+</body>
+</html>
