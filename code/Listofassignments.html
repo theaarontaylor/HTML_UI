@@ -43,14 +43,7 @@
 </head>
 <body>
 
-<div id="preloader">
-	<div id="status">
-    	<p class="center-text">
-			Loading the content...
-            <em>Loading depends on your connection speed!</em>
-        </p>
-    </div>
-</div>
+
 
 <div class="header">
     <img src="Logo_png.png" class="page-logo" style="height:40px; width:50px;" alt="img">
@@ -79,9 +72,9 @@
     <div class="one-half-responsive last-column" ng-app = "assignLst" ng-controller="AssignLstCtrl">
         <div class="container" ng-repeat="event in events">
             <div class="toggle-1">
-                <a href="#" class="deploy-toggle-1">{{event.assignment_name}}<br> <em class="fancy-date">{{event.due_date}}</em> </a>
+                <a href="#" style="padding-top:5px;" class="deploy-toggle-1"><h4>{{event.assignment_name}}</h4> <em class="fancy-date">{{event.due_date}}</em> </a>
                 <div class="toggle-content">
-                    <p>
+                    <p style="font-size: 12pt;">
 						{{event.description}}
                     </p>
                 </div>
