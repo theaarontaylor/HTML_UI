@@ -476,16 +476,20 @@ a{
 .button-big{
 	text-align:center;
 	color:#FFFFFF;
-	padding:10px 26px;
+	padding-bottom:10px;
 	display:inline-block;
-	margin:10px;
+	height: 60px;
 	width: 100%;
+	float: left;
+	margin:0px;
 	bottom: 10px;
-	position: fixed;    
+	position: fixed;  
+	text-align: center; 
 }
 
 .button-big a {
-	font-size: 60px;
+	font-size: 100px;
+	margin:0px;
 }
 
 .button-big-icon{
@@ -517,7 +521,12 @@ a{
 
 
 .button-turqoise{			background-color:#08A5AC;
-font-size: 20px;	}
+							font-size: 25px;
+							margin:0px;
+							line-height: 60px;
+							vertical-align: middle;
+								}
+								
 .button-turqoise:active{	 background-color:#085b4b;	}
 
 .button-green{			   background-color:#27ae60;	}

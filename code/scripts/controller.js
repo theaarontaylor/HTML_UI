@@ -1,9 +1,3 @@
-angular.module('coursesFilters', []).filter('coursesFilter', function() {
-  return function(input) {
-	return existsCourse(input.courseId);
-  };
-});
-angular.module('AssignLstCtrl', ['ngRoute','AssignLstCtrl','coursesFilters']);
 
 var assignLst = angular.module('assignLst', []);
 
