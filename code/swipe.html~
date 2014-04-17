@@ -27,7 +27,7 @@
 		display:block;
 	}
 	</style>
-	<script src="scripts/jquery.js"></script>
+	<script src="jquery.js"></script>
 </head>
 <body>
 
