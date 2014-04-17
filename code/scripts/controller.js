@@ -37,7 +37,7 @@ searchAssign.controller('searchController', ['$scope','$http',function ($scope, 
 		$('.checkbox-one').click(function(){
 			$(this).toggleClass('checkbox-one-checked');
 			return false;
-		});
+		}).addClass('checkbox-ok');
 		
 		$('.choose-course').click(function(){
 			var courseID = $(this).parent().children("span").html();
@@ -54,6 +54,11 @@ searchAssign.controller('searchController', ['$scope','$http',function ($scope, 
 		});
 		
 		$("input[name=q]").on('keyup', function(){
+			$("a.checkbox").not(".checkbox-ok").click(function(){
+				$(this).toggleClass('checkbox-one-checked');
+				return false;
+			}).addClass('checkbox-ok');
+			
 			$('.choose-course').addClass(function(index, currentClass){
 				if(existsCourse($(this).parent().children("span").html()))
 					return "checkbox-one-checked";
@@ -94,4 +99,9 @@ function existsCourse(course){
 		return false;
 	courses = JSON.parse(localStorage.getItem('courses'));
 	return courses.indexOf(course) != -1;
+}
+
+function dummy(param){
+	var i=0;
+	console.log(param);
 }
