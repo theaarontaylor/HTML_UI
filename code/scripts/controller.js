@@ -41,7 +41,7 @@ searchAssign.controller('searchController', ['$scope','$http',function ($scope, 
 		});
 		
 		$('.choose-course').click(function(){
-			var courseID = $(this).parent().parent().children("span").html();
+			var courseID = $(this).parent().children("span").html();
 			if($(this).hasClass("checkbox-one-checked"))
 				addCourse(courseID);
 			else
@@ -50,13 +50,13 @@ searchAssign.controller('searchController', ['$scope','$http',function ($scope, 
 		});
 		
 		$('.choose-course').addClass(function(index, currentClass){
-			if(existsCourse($(this).parent().parent().children("span").html()))
+			if(existsCourse($(this).parent().children("span").html()))
 				return "checkbox-one-checked";
 		});
 		
 		$("input[name=q]").on('keyup', function(){
 			$('.choose-course').addClass(function(index, currentClass){
-				if(existsCourse($(this).parent().parent().children("span").html()))
+				if(existsCourse($(this).parent().children("span").html()))
 					return "checkbox-one-checked";
 		});
 		});
