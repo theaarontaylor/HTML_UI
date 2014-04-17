@@ -3,11 +3,14 @@ var assignLst = angular.module('assignLst', []);
 
 assignLst.controller('AssignLstCtrl', ['$scope','$http',  function ($scope, $http) {
 	
-  $.getJSON('http://admin.whatsdueapp.com/users/dan/assignments/POL%20234.json').success(function(data) {
-
-    $scope.events = data;
+  $.getJSON('http://admin.whatsdueapp.com/all/assignments.json').success(function(data) {
+	newdata = Array();
+	for(i=0; i<data.length; i++)
+		if(existsCourse(data[i].course_i_d))
+			newdata = newdata.concat(Array(data[i]));
+    $scope.events = newdata;
 	$scope.$apply();
-	//console.log(data);	
+	console.log(newdata);	
 	$('.deploy-toggle-1').click(function(){
 		$(this).parent().find('.toggle-content').toggle(100);
 		$(this).toggleClass('toggle-1-active');
@@ -27,9 +30,10 @@ var searchAssign = angular.module('searchAssign',[]);
 
 searchAssign.controller('searchController', ['$scope','$http',function ($scope, $http) {
   $.getJSON('http://admin.whatsdueapp.com/all/courses.json').success(function(data) {
+		
 		$scope.courses = data;
 		$scope.$apply();
-		//console.log(data);	
+		console.log(data);	
 		$('.checkbox-one').click(function(){
 			$(this).toggleClass('checkbox-one-checked');
 			return false;
@@ -47,6 +51,13 @@ searchAssign.controller('searchController', ['$scope','$http',function ($scope, 
 		$('.choose-course').addClass(function(index, currentClass){
 			if(existsCourse($(this).parent().parent().children("span").html()))
 				return "checkbox-one-checked";
+		});
+		
+		$("input[name=q]").on('keyup', function(){
+			$('.choose-course').addClass(function(index, currentClass){
+				if(existsCourse($(this).parent().parent().children("span").html()))
+					return "checkbox-one-checked";
+		});
 		});
 	});
  
