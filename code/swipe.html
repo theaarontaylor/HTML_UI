@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swipe Test</title>
+	<style>
+	#touchsurface2 {
+		width: 300px;
+		height: 300px;
+		border: 1px solid orange;
+		background: lightyellow url(arrows.png) center center no-repeat;
+	}
+	
+	#touchsurface2 #inner {
+		width: 100%;
+		height: 100%;
+	}
+	
+	#touchsurface3 {
+		width: 300px;
+		height: 100px;
+		margin-left: 10px;
+		border: 1px solid orange;
+		background: lightyellow url(arrows.png) center center no-repeat;
+	}
+	
+	div {
+		display:block;
+	}
+	</style>
+	<script src="jquery.js"></script>
+</head>
+<body>
+
+	<h1>My First Heading</h1>
+
+	<p>My first paragraph.</p>
+	
+	<script>
+	 function swipedetect(el, callback){
+ 
+		 var touchsurface = el,
+		 swipedir,
+		 startX,
+		 startY,
+		 distX,
+		 distY,
+		 threshold = 150, //required min distance traveled to be considered swipe
+		 restraint = 100, // maximum distance allowed at the same time in perpendicular direction
+		 allowedTime = 300, // maximum time allowed to travel that distance
+		 elapsedTime,
+		 startTime,
+		 handleswipe = callback || function(swipedir){}
+		 
+		 touchsurface.addEventListener('touchstart', function(e){
+		  var touchobj = e.changedTouches[0]
+		  swipedir = 'none'
+		  dist = 0
+		  startX = touchobj.pageX
+		  startY = touchobj.pageY
+		  startTime = new Date().getTime() // record time when finger first makes contact with surface
+		  e.preventDefault()
+		 
+		 }, false)
+		 
+		 touchsurface.addEventListener('touchmove', function(e){
+		  e.preventDefault() // prevent scrolling when inside DIV
+		 }, false)
+		 
+		 touchsurface.addEventListener('touchend', function(e){
+		  var touchobj = e.changedTouches[0]
+		  distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
+		  distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
+		  elapsedTime = new Date().getTime() - startTime // get time elapsed
+		  if (elapsedTime <= allowedTime){ // first condition for awipe met
+		   if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){ // 2nd condition for horizontal swipe met
+			swipedir = (distX < 0)? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+		   }
+		   else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint){ // 2nd condition for vertical swipe met
+			swipedir = (distY < 0)? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+		   }
+		  }
+		  handleswipe(swipedir)
+		  e.preventDefault()
+		 }, false)
+	}
+ 
+	//USAGE:
+	/*
+	var el = document.getElementById('someel')
+	swipedetect(el, function(swipedir){
+	 swipedir contains either "none", "left", "right", "top", or "down"
+	 if (swipedir =='left')
+	   alert('You just swiped left!')
+	})
+	*/
+
+	window.addEventListener('load', function(){
+	 var el = document.getElementById('touchsurface2')
+	 var inner = document.getElementById('inner')
+	 var hidetimer = null
+	 swipedetect(el, function(swipedir){
+	  if (swipedir != 'none'){
+	   clearTimeout(hidetimer)
+	   var bgimage = swipedir + 'arrow.png' // naming convention is "leftarrow.png", "rightarrow.png" etc
+	   inner.style.background = 'transparent url(' + bgimage + ') center center no-repeat'
+	   hidetimer = setTimeout(function(){ // reset background image after 1 second
+		inner.style.background = ''
+	   }, 1000)
+	  }
+	 });
+	 
+		var el = document.getElementById('touchsurface3');
+		swipedetect(el, function(swipedir){
+			if (swipedir =='left')
+				$(el).animate({ "margin-left": "-=300px" }, "slow" );
+		});
+	}, false)
+
+	</script>
+	 
+	<div id="touchsurface2">
+	 <div id="inner">
+	  Swipe Me
+	 </div>
+	</div>
+	
+	<div id="touchsurface3">
+		Swipe me too
+	</div>
+	
+	<div id="date_div">
+		<input type="text" name="date" id="date" />
+	</div>
+
+
+</body>
+</html>
