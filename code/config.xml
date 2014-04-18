@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.whatsdue.admins"
+        versionCode = "1" 
+        version     = "0.0.6" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>WhatsDue</name>
+
+    <description>
+        Never miss another assignment!
+    </description>
+
+    <author href="https://whatsdueapp.com" email="support@whatsdueapp.com">
+        The Hackabees
+    </author>
+	
+	<icon src="icon.png" />
+	<gap:splash src="splash.png" />
+</widget>
