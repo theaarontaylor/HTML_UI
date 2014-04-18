@@ -17,8 +17,14 @@ assignLst.controller('AssignLstCtrl', ['$scope','$http',  function ($scope, $htt
 		return false;
 	});
 	
+	$('.delete-button').click(function(){
+		$(this).parent().hide(1000);
+		return false;
+	});
+	
 	$(".fancy-date").html(function(index, value) {
-		return moment(value, "DD MMM YYYY - HH:mm").fromNow();
+		var mm = moment(value, "YYYY-MM-DD HH:mm");
+		return mm.fromNow() + ", " + mm.calendar();
 	});
 
   });
