@@ -18,7 +18,7 @@ assignLst.controller('AssignLstCtrl', ['$scope','$http',  function ($scope, $htt
 	});
 	
 	$(".fancy-date").html(function(index, value) {
-		return moment(value, "YYYY-MM-DD").fromNow();
+		return moment(value, "DD MMM YYYY - HH:mm").fromNow();
 	});
 
   });
