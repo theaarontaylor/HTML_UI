@@ -56,11 +56,14 @@ a:hover{
 div, a, p, img, blockquote, form, fieldset, textarea, input, label, iframe, code, pre {
 	display: block;
 	position:relative;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
 p {
 	line-height: 20px;
 	margin-bottom: 20px;
+	
 	font-size:12px;
 	letter-spacing:0px;
 }
