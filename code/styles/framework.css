@@ -1832,38 +1832,3 @@ table tr:hover td{
 ul.courses{
 	padding-bottom: 70px!important;
 }
-
-a.delete-button{
-	float:right;
-	font-weight:bold;
-	font-size:14pt;
-	margin-top:20px;
-	margin-bottom:10px;
-	z-index:100;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

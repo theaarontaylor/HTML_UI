@@ -25,7 +25,7 @@ assignLst.controller('AssignLstCtrl', ['$scope','$http',  function ($scope, $htt
 	});
 	
 	$(".important, .normal").css('background-color', function(index, value){
-		if(Math.abs(moment().date() - moment($(this).children('em').html()).date()) <= 2)
+		if(Math.abs(moment().diff(moment($(this).children('em').html()), 'days')) <= 2)
 			return '#FF7777';
 	});
 
