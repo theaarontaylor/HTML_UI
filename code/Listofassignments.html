@@ -77,7 +77,7 @@
         <div class="container" ng-repeat="event in events | orderBy:orderProp">
 			<a href="#" class="delete-button">DEL</a>
             <div class="toggle-1">
-                <a href="#" style="padding-top:5px;" class="deploy-toggle-1"><h4 style="font-size:16pt;">{{event.assignment_name}}</h4> <em style="font-size:14pt;" class="fancy-date">{{event.due_date}}</em> </a>
+                <a href="#" style="padding-top:5px;" class="deploy-toggle-1" ng-class="event.importance"><h4 style="font-size:16pt;">{{event.assignment_name}}</h4> <em style="font-size:14pt;" class="fancy-date">{{event.due_date}}</em> </a>
 				
                 <div class="toggle-content">
                     <p style="font-size: 14pt;">

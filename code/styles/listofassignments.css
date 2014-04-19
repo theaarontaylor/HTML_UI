@@ -4,3 +4,13 @@
 	text-align: right;
 
 }
+
+a.delete-button{
+	float:right;
+	font-weight:bold;
+	color:gray;
+	font-size:14pt;
+	margin-top:20px;
+	margin-bottom:10px;
+	z-index:100;
+}

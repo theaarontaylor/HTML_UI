@@ -6,8 +6,10 @@ assignLst.controller('AssignLstCtrl', ['$scope','$http',  function ($scope, $htt
   $.getJSON('http://admin.whatsdueapp.com/all/assignments.json').success(function(data) {
 	newdata = Array();
 	for(i=0; i<data.length; i++)
-		if(existsCourse(data[i].course_i_d))
+		if(existsCourse(data[i].course_i_d)){
+			data[i].importance = 0!=i%2 ? 'important' : 'normal';
 			newdata = newdata.concat(Array(data[i]));
+		}
     $scope.events = newdata;
 	$scope.$apply();
 	console.log(newdata);	
@@ -22,11 +24,15 @@ assignLst.controller('AssignLstCtrl', ['$scope','$http',  function ($scope, $htt
 		return false;
 	});
 	
+	$(".important, .normal").css('background-color', function(index, value){
+		if(Math.abs(moment().date() - moment($(this).children('em').html()).date()) <= 2)
+			return '#FF7777';
+	});
+
 	$(".fancy-date").html(function(index, value) {
 		var mm = moment(value, "YYYY-MM-DD HH:mm");
 		return mm.fromNow() + ", " + mm.calendar();
 	});
-
   });
  
   $scope.orderProp = 'due_date';
